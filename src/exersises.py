@@ -211,16 +211,32 @@ def count_primes(num):
 # # Check
 print(f'12. Return 25: {count_primes(100)}')
 
-# Just for fun:
-# 13. PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter
-# print_big('a')
-# out:   *
-#       * *
-#      *****
-#      *   *
-#      *   *
-# HINT: Consider making a dictionary of possible patterns, and mapping the alphabet to specific 5-line combinations of patterns.
-# For purposes of this exercise, it's ok if your dictionary stops at "E".
-# def print_big(letter):
-#     pass
-# print_big('a')
+#----GENERATORS------
+
+# Problem 1
+# Create a generator that generates the squares of numbers up to some number N.
+def gensquares(N):
+	for num in range(N):
+		yield num**2
+
+for x in gensquares(10):
+	print(x)
+
+# Problem 2
+# Create a generator that yields "n" random numbers between a low and high number (that are inputs).
+# Note: Use the random library.
+import random
+
+def rand_num(low,high,n):
+	for x in range(n):
+		yield random.randint(low, high)
+
+for num in rand_num(1,10,12):
+	print(num)
+
+# Problem 3
+# Use the iter() function to convert the string below into an iterator
+s = 'hello'
+new_s = iter(s)
+print(next(new_s))
+print(next(new_s))
